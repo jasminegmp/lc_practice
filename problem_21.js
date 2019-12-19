@@ -12,7 +12,6 @@
 function mergeTwoLists (l1, l2) {
     let  m_head = new ListNode();
     let l3 = m_head;
-    
 
     while (l1 && l2){
         //l1.val
@@ -25,13 +24,12 @@ function mergeTwoLists (l1, l2) {
             l1 = l1.next;
         }
         l3 = l3.next;
-        //console.log(l3.val, l1.val, l2.val);
     }
 
     l3.next = l1 || l2;
 
     console.log(m_head);
-    return m_head;
+    return m_head.next;
 
 };
 
