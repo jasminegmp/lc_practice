@@ -2,59 +2,19 @@
  * @param {number[]} nums
  * @return {number}
  */
-function maxSubArray_greedy (nums) {
-    if (nums.length == 0){
-        return null;
+var maxSubArray = function(nums) {
+    let max_so_far = nums[0];
+    let max_ends_here = nums[0];
+    //console.log(max_so_far, max_ends_here)
+
+    for (let i = 1; i < nums.length; i++){
+        max_ends_here = Math.max(max_ends_here + nums[i], nums[i])
+
+        max_so_far = Math.max(max_so_far, max_ends_here)
+        //console.log(max_so_far, max_ends_here)
     }
-
-    var new_sum;
-    var prev_sum = 0;
-    var max_sum = nums[0];
-    var i = 0;
-    var ptr_1 = i;
-    var ptr_2 = i;
-
-    while (i < nums.length){
-
-
-        // when pointers point to the same pointer, doesn't matter
-        if (ptr_1 === ptr_2)
-        {
-            var new_sum = nums[ptr_1];
-        }
-        // otherwise, new sum is two values added up + previous sum
-        else{
-            var new_sum = nums[ptr_1] + nums[ptr_2] + prev_sum;
-        }
-        console.log(ptr_1, ptr_2);
-        console.log(nums[ptr_1], nums[ptr_2]);
-        new_sum
-
-        if (max_sum < new_sum)
-        {
-            ptr_1 += 1;
-            prev_sum = new_sum;
-        }
-        else
-        {
-            ptr_2 += 1;
-            prev_sum = new_sum;
-            max_sum = new_sum;
-        }
-
-        i = Math.max(ptr_1, ptr_2);
-
-        prev_sum
-        new_sum
-        max_sum
-
-
-    }
-
-    return max_sum;
-
+    //console.log(max_so_far)
+    return max_so_far
 };
 
-var nums = [-2, -1, -3];
-var output = maxSubArray_greedy(nums);
-console.log(output);
+maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
