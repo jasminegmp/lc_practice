@@ -1,6 +1,6 @@
 
 let get_neighbors = function(r,c, MAX_r, MAX_c){
-    console.log("entered: ", r, c, MAX_r, MAX_c)
+    //console.log("entered: ", r, c, MAX_r, MAX_c)
     let neighbors = [[r-1, c], [r+1, c], [r, c-1], [r, c+1]];
     let valid_neighbors = [];
     for (neighbor in neighbors){
@@ -48,10 +48,10 @@ var orangesRotting = function(grid) {
     // for each valid neighbor, change neighbor to 2 if it is already 1
     while (fresh && queue.length > 0)
     {
-        console.log("queue:", queue)
-        console.log("grid:", grid)
-        console.log("fresh:", fresh)
-        console.log("minutes:", minutes)
+        //console.log("queue:", queue)
+        //console.log("grid:", grid)
+        //console.log("fresh:", fresh)
+        //console.log("minutes:", minutes)
         next_queue = []
         // pop queue from front (FIFO)
         while(queue.length !=0 ){
@@ -59,19 +59,19 @@ var orangesRotting = function(grid) {
             //console.log(rotten[0], rotten[1]);
             valid_neighbors = get_neighbors(rotten[0], rotten[1], grid.length, grid[0].length);
             // get neighbors of rotten
-            console.log("valid_neighbors:" ,valid_neighbors)
+            //console.log("valid_neighbors:" ,valid_neighbors)
             
                 for (neighbor in valid_neighbors){
-                    console.log("minutes:", minutes)
+                    //console.log("minutes:", minutes)
                     
                     // if valid neighbor is fresh, rot it
                     // add neighbors onto queue
                     let r = valid_neighbors[neighbor][0];
                     let c = valid_neighbors[neighbor][1];
-                    console.log("r:", r, "c:", c, "grid[r][c]", grid[r][c])
+                    //console.log("r:", r, "c:", c, "grid[r][c]", grid[r][c])
                     if (grid[r][c] === 1)
                     {
-                        console.log("r:", r, "c:", c, "grid[r][c]", grid[r][c])
+                        //console.log("r:", r, "c:", c, "grid[r][c]", grid[r][c])
                         grid[r][c]= 2;
                         fresh--;
                         next_queue.push([valid_neighbors[neighbor][0], valid_neighbors[neighbor][1]])
