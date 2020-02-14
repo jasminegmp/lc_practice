@@ -9,4 +9,6 @@ var add = function(x,y){
 }
 
 // arrow function using function expression
-var add = (x,y) =>{x + y}
+var add = (x,y) =>{
+    return x + y
+}
