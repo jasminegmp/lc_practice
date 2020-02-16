@@ -52,8 +52,8 @@ if (true) {
 
 
 /////////////// template literals - this only happens because we are using a var due to hoisting
-var b = `bar ${a}`, a = `foo ${b}`;
-console.log(); // outputs 'foo undefined' 
+var a = `foo ${b}`, b = `bar ${a}`;
+console.log(a); // outputs 'foo undefined' 
 
 var myMap = new Map(),
     keyObj = {},
