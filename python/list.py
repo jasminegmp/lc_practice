@@ -42,7 +42,7 @@ print(1 in list2) #true
 temp_list1 = list1[:]
 temp_list1.insert(2, 'wee') #['a', 'b', 'wee', 'c', 'd', 'e', 'f', 'g']
 print(temp_list1)
-
+˜
 # len() - get length
 print(len(list1)) #7
 
