@@ -1,0 +1,4 @@
+1. It has a one way data-binding, allowing for more fine control over data passing.
+2. Lifecycle methods allow for control over how a component is made and inserted into the DOM.
+3. Components allows you to create simple building blocks to create complex interfaces.
+4. Component logic is written in javascript which makes it easy to pass the data around.
