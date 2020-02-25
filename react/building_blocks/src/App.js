@@ -3,6 +3,7 @@ import FormTextSubmit from './FormTextSubmit';
 import Parent from './ClassParentChild'
 import Parent2 from './FunctionParentChild'
 import Parent3 from './ClassChildParent'
+import OpenBreweryInteraction from './OpenBreweryInteraction';
 
 class App extends React.Component{
   constructor(props){
@@ -12,13 +13,16 @@ class App extends React.Component{
     }
   }
 
+  // callback function from data from text
+  handleCallback = (zipcode) =>{
+    this.setState({zipcode})
+  }
+
   render(){
     return (
       <div className="App">
-        <FormTextSubmit/>
-        <Parent/>
-        <Parent2/>
-        <Parent3/>
+        <FormTextSubmit zipcodeCallback = {this.handleCallback}/>
+        {this.state.zipcode ? <OpenBreweryInteraction zipcode = {this.state.zipcode}/> : null}
       </div>
     );
   }

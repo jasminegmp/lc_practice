@@ -9,8 +9,10 @@ class FormTextSubmit extends React.Component{
     }
 
     onSubmit = (event) => {
-        alert("You submitted: " + this.state.input);
+        //alert("You submitted: " + this.state.input);
+        this.props.zipcodeCallback(this.state.input);
         event.preventDefault();
+
     }
 
     onChange = (event) => {
