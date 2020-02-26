@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import BreweryDisplay from './BreweryDisplay'
 
 class OpenBreweryInteraction extends React.Component{
 
@@ -12,9 +13,14 @@ class OpenBreweryInteraction extends React.Component{
         }
     }
 
-    componentDidUpdate(){
+    componentDidMount(){
+        const { zipcode} = this.state
+        var myParams = {
+            data: zipcode
+        }
         let self = this;
-        axios.post('http://127.0.0.1:5000/api/query_zipcode', this.props.zipcode)
+        if (zipcode !== "") {
+        axios.post('http://127.0.0.1:5000/api/query_zipcode', myParams)
         .then(function(response){
             //console.log(response);
             self.setState({result: response});
@@ -25,11 +31,18 @@ class OpenBreweryInteraction extends React.Component{
                 console.log(error);
         //Perform action based on error
             });
+        }
     }
 
     render(){
+        if(this.state.loading) {
+            return(
+                
+                <div>loading</div>
+            )
+        }
         return(
-            <div>{this.props.zipcode}</div>
+            <div><BreweryDisplay result = {this.state.result}/></div>
         )
     }
 }
